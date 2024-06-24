@@ -29,24 +29,26 @@ function App() {
 
   return (
     <div className="App">
-      <h1>You have {todos.length} Todos</h1>
-      <form onSubmit={addTodo}>
-        <input
-          type="text"
-          value={newTodo}
-          onChange={(e) => setNewTodo(e.target.value)}
-          placeholder="Enter Item"
-        />
-        <button type="submit">Submit</button>
-      </form>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo._id}>
-            {todo.text}
-            <button onClick={() => deleteTodo(todo._id)}>x</button>
-          </li>
-        ))}
-      </ul>
+      <div className="todo-container">
+        <h2>You have {todos.length} Todos</h2>
+        <ul>
+          {todos.map((todo) => (
+            <li key={todo._id}>
+              {todo.text}
+              <button onClick={() => deleteTodo(todo._id)}>×</button>
+            </li>
+          ))}
+        </ul>
+        <form onSubmit={addTodo}>
+          <input
+            type="text"
+            value={newTodo}
+            onChange={(e) => setNewTodo(e.target.value)}
+            placeholder="Enter Item"
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 }
